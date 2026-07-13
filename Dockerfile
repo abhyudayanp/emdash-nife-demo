@@ -1,10 +1,10 @@
-FROM node:20-alpine
+FROM node:20
 
 WORKDIR /app
 
 # Install dependencies
 COPY package.json package-lock.json* pnpm-lock.yaml* ./
-RUN apk add --no-cache python3 make g++ && npm install
+RUN npm install
 
 # Copy the rest of the application
 COPY . .
