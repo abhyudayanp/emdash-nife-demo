@@ -4,8 +4,7 @@ WORKDIR /app
 
 # Install dependencies
 COPY package.json package-lock.json* pnpm-lock.yaml* ./
-# Use npm install since package manager might vary, but package-lock is generated
-RUN npm install
+RUN apk add --no-cache python3 make g++ && npm install
 
 # Copy the rest of the application
 COPY . .
